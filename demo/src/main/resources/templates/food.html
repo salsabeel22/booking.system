@@ -1,0 +1,106 @@
+<html>
+	<head>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	
+	<link th:href="@{/css/styles.css}" rel="stylesheet">
+	<style>
+body {
+  background-image: url('https://diyprojects.com/wp-content/uploads/2016/01/Pretty_in_Pink_Food_Recipes_02.jpg');
+  
+}
+.button {
+  background-color: #00a0e0;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+	</head>
+	<body style="
+    background-color: antiquewhite;
+">
+	<div class="topnav">
+
+
+
+  <a  href="/profile">Profile</a>
+  <a href="/employee">Employee</a>
+  <a href="/home">Customer</a>
+  
+  <a href="/reservation">Reservation</a>
+  <a class="active" href="/menu">Food</a>
+<a href="/logout">logut</a>
+</div>
+	
+
+<div class="w3-container"
+  style=" padding-left: 100;
+    padding-top: 10;
+    margin-left: 100;">
+    
+
+
+
+		<h1 style="
+    font-size: 50;
+    font-style: italic;
+    text-transform: capitalize;
+"> food menu :
+
+		</h1>
+
+ 
+
+	
+		<div th:each="food: ${food}"> 
+		
+		<div class="w3-card-4" style="width:50%">
+    <img src="https://th.bing.com/th/id/R.0ed30bc4ca249f20e20edf2a7cb060bc?rik=vTaL2Av7YIJYMw&riu=http%3a%2f%2fimages.stockunlimited.net%2fillustration%2frestaurant-menu-logo-icon_1710137.png&ehk=gMqmsD4MLnLcmfBv8xJP3k6EynVWiOIHxTT9pgSDu0I%3d&risl=&pid=ImgRaw&r=0" alt="Alps" style="width:100%;background-color: white;height: 50%;" >
+    <div class="w3-container w3-center"
+    style="
+    background-color: bisque;font-style: oblique;
+    ">
+     
+		
+			<!-- <p><h2> food number in list : <span  th:text="${food.id}"> </span> -->
+			<h2> food name :  <span th:text="${food.name}"> </span>
+			<h2>food price : <span th:text="${food.price}"> </span> <span <p> JD</p></span>
+			<h2>food abstract in list : <span th:text="${food.abstracts}"> </span>
+				</p>
+			<form th:action="'/delete-food/'+${food.id}" onsubmit="myFunction()" method="delete">
+						<input type="submit" class="button" value="delete"/>
+			
+			</form>
+			
+<form th:action="'/edit-food/'+${food.id}" method="post">
+						<input type="submit" class="button" value="update food "/>
+						
+			</form>
+			
+	
+			<hr>
+			
+		</div>
+			
+		</div>
+		<form th:action="'/add_food/'"  method="post">
+						<input type="submit" class="button" value="add a new food to menu "/>
+			
+			</form>
+			
+
+			</div>
+<script>
+function myFunction() {
+  alert(" you have deleted food from menu ");
+}
+
+</script>
+	</body>
+</html>

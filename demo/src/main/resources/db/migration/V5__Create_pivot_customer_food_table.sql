@@ -1,0 +1,1 @@
+create table pivot_customer_food(customer_id int references customers(id),food_id int references foods(id));

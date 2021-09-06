@@ -1,0 +1,113 @@
+<html>
+	<head>
+	<link th:href="@{/css/styles.css}" rel="stylesheet">
+	<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  background-image: url('https://mostaql.hsoubcdn.com/uploads/731518-VSteP-1592828109-5ef0a0cd5864e.png'); 
+ 
+}
+.button {
+  background-color: #cfaad6;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+        width: 24%;
+  
+}
+</style>
+	</head>
+	
+	<body
+		 style=" background-color:#cfaad6;">
+	
+		
+	
+<div class="topnav">
+
+
+
+
+  <a  href="/profile">Profile</a>
+  <a class="active" href="/employee">Employee</a>
+  <a href="/home">Customer</a>
+  
+  <a href="/reservation">Reservation</a>
+  <a href="/menu">Food</a>
+<a href="/logout">logut</a>
+</div>
+
+
+<div class="container"
+style="
+    padding: 2;
+">
+<center>
+<div class="w3-container">
+<h1 style="
+    font-size: 60;
+    text-align: center;
+    font-style: italic;
+
+    
+">employees</h1>
+<div style="
+    padding-left: 100;
+">
+  <div th:each="employee: ${employee}">
+  <div class="w3-panel w3-card w3-yellow" style="
+    background-color: #d47b99;
+     width: 1000;
+">
+    <p>
+			
+			<h2> employee name: <span th:text="${employee.name}"> </span>
+			<h2> employee age: <span th:text="${employee.age}"> </span>
+			<h2> employee salary: <span th:text="${employee.salary}"> </span>
+			
+			<hr>
+			
+			
+			<h1 style="border:2px solid DodgerBlue;background-color:aliceblue;">  customer register by employee </h1>
+			<div th:each="customer: ${employee.customers}">
+			 <!-- <h2>customer number: <span th:text="${customer.id}"> </span> -->
+			<h2>customer name: <span th:text="${customer.name}"> </span>
+			<h2>numberID: <span th:text="${customer.numberid}"> </span>
+
+			<form th:action="'/delete-customer/'+${customer.id}" onsubmit="myFunction()" method="delete">
+						<input type="submit" class="button" value="delete a customer"/>
+			
+			</form>
+			<form th:action="'/edit-customer/'+${customer.id}"  method="post">
+						<input type="submit" class="button" value="update information"/>
+						
+			</form>
+		<hr>
+		</p>
+</div>
+<form th:action="'/customer/'+${employee.id}"  method="post">
+			
+		
+			<input type="submit" class="button" value="create new customer"/>
+	</form>
+</div>
+</div>
+		
+		</center>
+		<script>
+function myFunction() {
+  alert(" delete  customer successful");
+}
+
+</script>
+		
+	</body>
+</html>

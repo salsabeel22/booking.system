@@ -1,0 +1,65 @@
+<html>
+    <head>
+    	<link th:href="@{/css/styles.css}" rel="stylesheet">
+    
+        <title>edit order</title>
+        <style>
+body {
+   background-image: url('https://assets.publishing.service.gov.uk/government/uploads/system/uploads/image_data/file/108320/s960_pizza-slice.jpg');
+ 
+}
+.button {
+  background-color: #ca5d00;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+    </head>
+    <body>
+    <div class="topnav">
+
+
+
+
+  <a href="/profile">Profile</a>
+  <a href="/employee">Employee</a>
+  <a  class="active" href="/home">Customer</a>
+  
+  <a href="/reservation">Reservation</a>
+  <a href="/menu">Food</a>
+<a href="/logout">logut</a>
+</div>
+
+    
+        <form action="#" th:action="'/subscribe-customer_order/'+${customerId}" th:object= "${customer}" onsubmit="myFunction()" method ="post"
+        style="
+    background-color: #932d00;
+    margin-top: 100;
+    padding: 100;
+    margin: 100;
+    height: 1;
+    width: 1000;
+    color: bisque;
+    font-size: 50;
+">
+            <label for="foods">Choose a food:</label>
+            <select name="food" id="foods">
+              <option th:each= "food: ${foods}" th:value="${food.id}" th:text="${food.name}"></option>
+            </select>
+            <input type = "submit"class="button" value="add"/>
+        </form>
+        <script>
+function myFunction() {
+  alert(" ADD  ANEW FOOD ORDER SUCCESSFUL");
+}
+
+</script>
+    </body>
+</html>

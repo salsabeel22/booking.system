@@ -1,0 +1,71 @@
+<html>
+<head>
+	<link th:href="@{/css/styles.css}" rel="stylesheet">
+
+	<title>Create an employee</title>
+	<style>
+body {
+  background-image: url('https://www.pngitem.com/pimgs/m/36-367727_vector-graphics-person-at-desk-cartoon-transparent-png.png');
+background-size:cover;
+background-repeat: no-repeat;
+}
+.button {
+  background-color:lightcoral;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+        width: 50%;
+  
+}
+</style>
+</head>
+
+<body>
+<div class="topnav">
+
+
+
+
+  <a class="active" href="/profile">Profile</a>
+  <a href="/employee">Employee</a>
+  <a href="/home">Customer</a>
+  
+  <a href="/reservation">Reservation</a>
+  <a href="/menu">Food</a>
+<a href="/logout">logut</a>
+</div>
+
+	<form action="#" th:action="@{/create_employee}" th:object="${employee}" onsubmit="myFunction()" method="post"
+	style="
+    margin-top: 100;
+    padding: 100;
+     margin: 100;
+    width: 500;
+            margin-left: 65%;
+    
+"> 
+		 <label for="fname" style="  font-size: 30;"> name:</label><br>
+
+	   <input type="text"style="width: 50%;height: 40;" th:field="*{name}" /> <br>
+	   		 <label for="fname" style="  font-size: 30;"> age:</label><br>
+	   
+			<input type="text"style="width: 50%;height: 40;" th:field="*{age}" />	<br>
+			 <label for="fname" style="  font-size: 30;">salary:</label><br>
+		<input type="text"style="width: 50%;height: 40;" th:field="*{salary}" /> <br>
+			
+			<input type="submit" class="button" value="add new employee"/>
+	</form>
+<script>
+function myFunction() {
+  alert(" add  employee successful");
+}
+
+</script>
+</body>
+</html>

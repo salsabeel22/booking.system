@@ -1,0 +1,106 @@
+<html>
+	<head>
+	<link th:href="@{/css/styles.css}" rel="stylesheet">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	
+	<style>
+body {
+ <!-- background-image: url('https://ak4.picdn.net/shutterstock/videos/7449214/thumb/1.jpg'); -->
+}
+.button {
+  background-color: #00a0e0;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  
+}
+</style>
+</head>
+
+	<body
+	style="
+    background-color: #a0bdc1;
+    -webkit-text-stroke: thick;
+">
+	
+	<div class="topnav">
+
+
+
+  <a  href="/profile">Profile</a>
+  <a href="/employee">Employee</a>
+  <a href="/home">Customer</a>
+  
+  <a class="active" href="/reservation">Reservation</a>
+  <a href="/menu">Food</a>
+<a href="/logout">logut</a>
+</div>
+<center>
+<div class="w3-container"
+  style=" padding-left: 100;
+    padding-top: 10;
+   ">
+    
+
+
+
+		<h1 style="
+    font-size: 50;
+    font-style: italic;
+    text-transform: capitalize;
+"> reservation :
+
+		</h1>
+
+ 
+	
+		<div th:each="reservation: ${reservation}">
+		
+		<div class="w3-card-4" style="width:50%">
+    <img src="https://img.freepik.com/free-vector/modern-reception-concept-with-flat-design_23-2147993161.jpg?size=338&ext=jpg" alt="Alps" style="width:100%;background-color: white;height: 50%;" >
+    <div class="w3-container w3-center"
+    style="
+    background-color: bisque;font-style: oblique;
+    "> <p>
+			<!-- <h2>reservation number: <span th:text="${reservation.id}"> </span> -->
+			<h2>room_number: <span th:text="${reservation.room_number}"> </span>
+			<h2>start_date: <span th:text="${reservation.start_date}"> </span>
+			<h2>end_date: <span th:text="${reservation.end_date}"> </span>
+				
+			
+			<form th:action="'/delete-reservation/'+${reservation.id}" onsubmit="myFunction()"  method="delete">
+						<input type="submit" value="delete"/>
+			
+			</form>
+	
+	
+			<form th:action="'/edit-reservation/'+${reservation.id}"  method="post">
+						<input type="submit" value="update a reservation"/>
+						
+			</form>
+			</p>
+	<hr>
+		
+			
+		
+		</div>
+			
+			
+		
+			
+		</div>
+		</center>
+	</body>
+	<script>
+function myFunction() {
+  alert("The reservation have deleted");
+}
+
+</script>
+</html>

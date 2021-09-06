@@ -1,0 +1,133 @@
+<html>
+	<head>
+	<link th:href="@{/css/styles.css}" rel="stylesheet">
+	<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+	
+	<style>
+body {
+  background-image: url('https://mostaql.hsoubcdn.com/uploads/731518-VSteP-1592828109-5ef0a0cd5864e.png');
+}
+.button {
+  background-color: #cfaad6;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+        width: 30%;
+  
+}
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  
+}
+
+.closebtn:hover {
+  color: black;
+}
+</style>
+	</head>
+	
+	<body style="background-color: gainsboro;
+	">
+	<div class="topnav">
+
+
+
+  <a  href="/profile">Profile</a>
+  <a class="active" href="/employee">Employee</a>
+  <a href="/home">Customer</a>
+  
+  <a href="/reservation">Reservation</a>
+  <a href="/menu">Food</a>
+<a href="/logout">logut</a>
+</div>
+<div class="w3-container">
+<h1 style="
+    font-size: 60;
+        font-family: sans-serif;
+    text-align: center;
+    font-style: italic;
+">employee</h1>
+<div style="
+    padding-left: 100;
+">
+<div th:each="employee: ${employee}">
+  <div class="w3-panel w3-card w3-yellow" style="
+    background-color: #d47b99;
+          width: 1000;
+    
+">
+
+<center>
+  <p>
+ <!-- <h2> employee number: <span th:text="${employee.id}"> </span> -->
+			<h2> employee name: <span th:text="${employee.name}"> </span>
+		<!--	<h2> employee age: <span th:text="${employee.age}"> </span> -->
+			
+		
+		<form th:action="'/delete-employee/'+${employee.id}" onsubmit="myFunction()" method="delete">
+		 
+
+						<input type="submit" class="button"  value="delete employee from system"/>
+						</form>
+						
+ 
+			
+			
+			
+			<form th:action="'/edit-employee/'+${employee.id}" method="post">
+						<input type="submit"  class="button" value="update employee information"/>
+				
+						
+						
+			</form>
+			
+			<form th:action="'/employee-with-details/'+${employee.id}" method="post">
+						<input type="submit"  class="button"  value="employee with details"/>
+						
+			</form>
+			<hr>
+			</p>
+			</center>
+			</div>
+			
+</div>
+		
+		
+			
+		</div>
+		
+		
+			<form action="#" th:action="@{/create}" method="post">
+		
+			<input type="submit" class="button" value="add new employee"
+			style="
+    background-color: black;
+" />
+	</form>
+ 
+ <script>
+function myFunction() {
+  alert("The employee was deleted");
+}
+</script>
+	</body>
+</html>

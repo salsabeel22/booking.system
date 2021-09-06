@@ -1,0 +1,1 @@
+create table reservations(id serial primary key ,room_number int,start_date Timestamp,end_date Timestamp,customer_id int references customers(id) );

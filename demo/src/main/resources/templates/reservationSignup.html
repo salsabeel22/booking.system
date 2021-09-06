@@ -1,0 +1,77 @@
+<html>
+<head>
+	<link th:href="@{/css/styles.css}" rel="stylesheet">
+
+	<title>Create a reservation</title>
+	<style>
+body {
+  background-image: url('https://www.pngitem.com/pimgs/m/36-367727_vector-graphics-person-at-desk-cartoon-transparent-png.png');
+background-size:cover;
+background-repeat: no-repeat;
+}
+.button {
+  background-color: lightcoral;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+          width: 50%;
+  
+}
+</style>
+</head>
+
+<body>
+<div class="topnav">
+
+
+
+
+  <a  href="/profile">Profile</a>
+  <a href="/employee">Employee</a>
+  <a class="active" href="/home">Customer</a>
+  
+  <a  href="/reservation">Reservation</a>
+  <a href="/menu">Food</a>
+<a href="/logout">logut</a>
+</div>
+
+	<form th:action="'/create-reservation/'+${customer.id}" th:object="${reservation}" onsubmit="myFunction()" method="post"
+	style="
+    
+   margin-top: 100;
+    padding: 100;
+     margin: 100;
+    width: 600;
+            margin-left: 65%;
+    
+"> 
+    
+
+
+
+		 <label for="fname" style="  font-size: 30;"> room_number:</label><br>
+		 <input type="text" style="width: 50%;height: 40;" th:field="*{room_number}" /><br>
+		 		 <label for="fname" style="  font-size: 30;">start_date:</label><br>
+		 
+			 <input type="text" style="width: 50%;height: 40;" th:field="*{start_date}" />	<br>		
+				 <label for="fname" style="  font-size: 30;">end_date:</label><br>
+		
+		 <input type="text" style="width: 50%;height: 40;" th:field="*{end_date}" /><br>
+	<br>	
+			<input type="submit" class="button" value="make a new reservation"/>
+	</form>
+ <script>
+function myFunction() {
+  alert(" MAKE  ANEW RESERVATION SUCCESSFUL");
+}
+
+</script>
+</body>
+</html>
+		
